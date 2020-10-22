@@ -1,0 +1,23 @@
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: proga
+      MONGO_INITDB_ROOT_PASSWORD: proga
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - "127.0.0.1:8081:8081"
+    environment:
+
+      ME_CONFIG_MONGODB_ADMINUSERNAME: proga
+      ME_CONFIG_MONGODB_ADMINPASSWORD: proga
+
+  bot:
+    build: ./
+    restart: always
+    volumes:
+      - ./bot/logs:/app/logs
