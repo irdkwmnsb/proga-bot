@@ -1,2 +1,5 @@
+from progabot.secrets import TOKEN
 DBURI = "mongodb://proga:proga@mongo"
-TOKEN = "1381712642:..."
+DBNAME = "proga"
+PREPS = [("gk", "Георгий Корнеев"), ("ys", "Юлия Савон"), ("ap", "Андрей Плотников")]
+ADMINS = [349266213]

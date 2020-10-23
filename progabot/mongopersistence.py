@@ -6,7 +6,7 @@ from collections import defaultdict
 from progabot.logger import logger
 
 
-class MongoPersistance(BasePersistence):
+class MongoPersistence(BasePersistence):
     def __init__(self, uri, database,
                  store_user_data=True,
                  store_chat_data=True,

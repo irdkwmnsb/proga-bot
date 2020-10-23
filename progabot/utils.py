@@ -1,3 +1,5 @@
+from functools import wraps
+
 from telegram import Bot
 from telegram.ext import messagequeue as mq, Updater
 
@@ -69,3 +71,4 @@ class QueuedUpdater(Updater):
 
     def signal_handler(self, signum, frame):
         super().signal_handler(signum, frame)
+        self.bot.stop()
