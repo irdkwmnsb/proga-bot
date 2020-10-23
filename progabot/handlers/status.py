@@ -13,7 +13,7 @@ def enter(update: Update, context: CallbackContext):
     lines = ["=!= Очереди =!="]
     for prep, name in PREPS:
         lines.append(f"{name} - {prep}")
-        lines.append("".join(get_queue(update, context, prep)))
+        lines.append(" ".join(get_queue(update, context, prep)))
         lines.append("")
     update.message.reply_text("\n".join(lines))
     return True
