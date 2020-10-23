@@ -17,7 +17,8 @@ def done(update: Update, context: CallbackContext):
     try:
         task_n, next_user, username = pop_prep(update, context, prep)
         context.user_data["last_at"] = None
-        update.message.reply_text("Спасибо! Вы вышли из очереди")
+        update.message.reply_text("Спасибо! Вы вышли из очереди. Если вы были записаны в другие очереди - не "
+                                  f"забудьте заново записаться")
         context.dispatcher.user_data[next_user]["last_at"] = prep
         context.bot_data[prep+"_at"] = next_user
         context.bot.send_message(next_user, f"Ваша очередь!\n"

@@ -20,12 +20,12 @@ def skip(update: Update, context: CallbackContext):
                 task_n, next_user, username = pop_prep(update, context, prep)
                 update.message.reply_text(
                     f"Skipped {context.dispatcher.bot_data.get(prep, 'nobody')}. Next is @{username} for task {task_n}")
-                context.bot_data[prep+"_at"] = next_user
+                context.bot_data[prep + "_at"] = next_user
                 context.dispatcher.user_data[next_user]["last_at"] = prep
                 context.bot.send_message(next_user, f"Ваша очередь!\n"
                                                     f"Вы сдаёте задачу {task_n} преподавателю <b>{prep}</b>.\n"
-                                                    f"Пожалуйста не задерживайте очередь и как только уйдёте от препода -"
-                                                    f" напишите /done" , parse_mode="HTML")
+                                                    f"Пожалуйста не задерживайте очередь и как только уйдёте от препода"
+                                                    f" - напишите /done.", parse_mode="HTML")
                 alert_next(update, context, prep)
             except IndexError as e:
                 update.message.reply_text("Queue is empty.")
