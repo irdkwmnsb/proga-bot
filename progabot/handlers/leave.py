@@ -17,7 +17,7 @@ def leave(update: Update, context: CallbackContext):
     elif len(args) >= 1:
         prep_name = args[1]
         update.message.reply_text("Вы вышли из очереди")
-        dequeue_prep(update, context, prep_name)
+        dequeue_prep(update, context, prep_name, update.effective_user.id)
         alert_next(update, context, prep_name)
     return True
 

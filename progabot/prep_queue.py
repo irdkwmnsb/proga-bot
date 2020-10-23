@@ -36,16 +36,11 @@ def pop_prep(update: Update, context: CallbackContext, prep):
         context.dispatcher.user_data[user][f"visits_{prep}"] = visits_prep + 1
         context.bot_data[prep].pop(0)
         for prep, name in PREPS:
-            for i, (_, _, _, _, id, username) in enumerate(context.bot_data[prep]):
-                if id == user:
-                    context.bot_data[prep][i][0] = visits + 1
-                    context.bot_data[prep].sort()
-                    break
+            dequeue_prep(update, context, prep, user)
     return task_n, user, username
 
 
-def dequeue_prep(update: Update, context: CallbackContext, prep):
-    user = update.effective_user.id
+def dequeue_prep(update: Update, context: CallbackContext, prep, user):
     for i, (_, _, _, _, id, username) in enumerate(context.bot_data[prep]):
         if id == user:
             context.bot_data[prep].pop(i)
