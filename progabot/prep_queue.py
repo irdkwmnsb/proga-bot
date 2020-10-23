@@ -58,3 +58,7 @@ def alert_next(update: Update, context: CallbackContext, prep):
     for i, (_, _, _, _, id, username) in enumerate(context.bot_data[prep]):
         context.bot.send_message(id, f"В очереди к {prep} перед вами {i} человек.\n"
                                      f"Пожалуйста будьте готовы подойти к преподавателю, когда настанет ваша очередь")
+
+
+def get_queue(update: Update, context: CallbackContext, prep):
+    return [f"@{i[5]}" for i in context.bot_data[prep]]

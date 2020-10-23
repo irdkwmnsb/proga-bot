@@ -11,7 +11,7 @@ def default(update: Update, context: CallbackContext):
         lines.append("Встать в очередь /e")
     else:
         lines.append("Выйти из очереди /d")
-    lines.append("Статус /s - пока не работает")
+    lines.append("Статус /s")
     update.message.reply_text("\n".join(lines))
     return True
 

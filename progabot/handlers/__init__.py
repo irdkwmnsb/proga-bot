@@ -7,7 +7,7 @@ from telegram.ext import Dispatcher
 
 from progabot.logger import logger
 
-module_names = ["enter", "leave", "done", "skip", "populate", "default"]
+module_names = ["enter", "leave", "done", "skip", "populate", "default", "status"]
 
 
 def add_handlers(dispatcher: Dispatcher):
