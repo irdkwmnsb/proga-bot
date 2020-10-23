@@ -61,4 +61,4 @@ def alert_next(update: Update, context: CallbackContext, prep):
 
 
 def get_queue(update: Update, context: CallbackContext, prep):
-    return [f"@{i[5]}" for i in context.bot_data[prep]]
+    return [f"@{i[5]} ({i[2]})" for i in context.bot_data[prep]]
